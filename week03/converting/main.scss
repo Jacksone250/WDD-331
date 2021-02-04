@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+
+// Colors Variables
+$blue: #6495ED;
+$cream: #FAEBD7;
+$light-orange: #DEB887;
+$white: #ffffff;
+$black: #000000;
+$grey: #888888;
+$light-grey: #CCCCCC;
+
+$primary-theme-color: $blue;
+$secondary-theme-color: $cream;
+$first-accent-color: $light-orange;
+$second-accent-color: $white;
+$third-accent-color: $black;
+$fourth-accent-color: $grey;
+$fifth-accent-color: $light-grey;
+
+// Break point variables
+$break-medium: 32em;
+$break-large: 62em;
+
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Lora', serif;
+}
+
+header {
+    background-color: $primary-theme-color;
+    color: $secondary-theme-color;
+    padding: 1em;
+    text-align: right;
+
+    h1 {
+        a {
+            color: $secondary-theme-color;
+            text-decoration: none;
+        }
+    }
+
+    hr {
+        width: 90%;
+        color: $secondary-theme-color;
+        margin-right: 0;
+    }
+}
+
+nav {
+    ul {
+        list-style: none;
+    }
+
+    a,
+    a:visited {
+        color: $secondary-theme-color;
+        text-decoration: none;
+    }
+
+    a {
+        &:hover {
+            color: $second-accent-color;
+            text-decoration: underline;
+        }
+
+        &:active {
+            color: $first-accent-color;
+        }
+    }
+}
+
+main {
+    background-color: $secondary-theme-color;
+    padding: 1em;
+
+    a,
+    a:visited {
+        color: $primary-theme-color;
+        text-decoration: none;
+    }
+
+    a {
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:active {
+            color: $primary-theme-color;
+        }
+    }
+}
+
+article {
+    background-color: $second-accent-color;
+    box-shadow: 4px 4px 4px $fifth-accent-color;
+    margin: 1em 0;
+    padding: 1em;
+
+    h2 {
+        a {
+            color: $third-accent-color;
+
+            &:hover {
+                color: $primary-theme-color;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+img {
+    width: 100%;
+}
+
+.post-date {
+    color: $fourth-accent-color;
+}
+
+
+@mixin screen-breaks($break) {
+    @if $break==large {
+        @media only screen and (min-width: $break-large) {
+
+            body {
+                div {
+                    &:first-child {
+                        display: flex;
+                        flex-direction: row;
+                    }
+                }
+            }
+        
+            header {
+                padding: 2em;
+            }
+        
+            article {
+                margin: 3em;
+                padding: 3em;
+            }
+        
+            img {
+                max-width: 25em;
+            }
+        }
+    }
+
+    @else if $break==medium {
+        @media only screen and (min-width: $break-medium) {
+
+            body {
+                div {
+                    &:first-child {
+                        display: flex;
+                        flex-direction: row;
+                    }
+                }
+            }
+        
+            header {
+                padding: 2em;
+            }
+        
+            article {
+                margin: 3em;
+                padding: 3em;
+            }
+        
+            img {
+                max-width: 25em;
+            }
+        }
+    }
+}
+
+@include screen-breaks(medium)
+
+
